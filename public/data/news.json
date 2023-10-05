@@ -6,7 +6,7 @@
         "is_trending": true
       },
       "category_id": "1",
-      "rating": { "number": 4.5, "badge": "Excellent" },
+      "rating": { "number": 3.5, "badge": "Excellent" },
       "total_view": 488,
       "title": "Biden Pledges Nearly $3 Billion To Ukraine In Largest U.S. Military Aid Package Yet",
       "author": {
@@ -45,7 +45,7 @@
         "is_trending": true
       },
       "category_id": "1",
-      "rating": { "number": 4.8, "badge": "Excellent" },
+      "rating": { "number": 2.8, "badge": "Excellent" },
       "total_view": 400,
       "title": "Tucker Carlson Swears Vladimir Putin Is Winning The War In Ukraine",
       "author": {
@@ -64,7 +64,7 @@
         "is_trending": true
       },
       "category_id": "2",
-      "rating": { "number": 4.3, "badge": "Excellent" },
+      "rating": { "number": 3.3, "badge": "Excellent" },
       "total_view": 400,
       "title": "Tucker Carlson Swears Vladimir Putin Is Winning The War In Ukraine",
       "author": {
@@ -103,7 +103,7 @@
         "is_trending": false
       },
       "category_id": "1",
-      "rating": { "number": 4.5, "badge": "Excellent" },
+      "rating": { "number": 3.5, "badge": "Excellent" },
       "total_view": 980,
       "title": "Joe Biden announces $3 billion in Ukraine weapons aid",
       "author": {
@@ -123,7 +123,7 @@
         "is_trending": true
       },
       "category_id": "2",
-      "rating": { "number": 4.5, "badge": "Excellent" },
+      "rating": { "number": 2.5, "badge": "Excellent" },
       "total_view": null,
       "title": "Tucker Carlson: Putin Winning in Ukraine, Biden Hurting West",
       "author": {

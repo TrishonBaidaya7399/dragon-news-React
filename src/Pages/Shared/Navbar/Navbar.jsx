@@ -3,7 +3,17 @@
 import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css"
 import userDefaultImg from "../../../assets/images/user.png"
+import { useContext } from "react";
+import { AuthContext } from "../../../Providers/AuthProvider";
 const Navbar = () => {
+    const {user, logOut} = useContext(AuthContext);
+    const handleSignOut=()=>{
+      logOut()
+      .then(console.log("Logged out!"))
+      .catch(error=>{
+      console.error(error.message);  
+      })
+    }
     const links=
     <>
     <li>
@@ -17,7 +27,7 @@ const Navbar = () => {
     </li>
     </>
     return (
-        <div className="navbar mb-[70px]">
+        <div className="navbar">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -39,8 +49,12 @@ const Navbar = () => {
         <div className="w-10 rounded-full">
           <img src={userDefaultImg} />
         </div>
-      </label>
-    <Link to="/login" className="btn bg-gray-700 text-white px-11 rounded-none hover:bg-gray-300 hover:text-black hover:font-semibold hover:border-2 hover:border-gray-700">Login</Link>
+  </label>
+  {
+    user 
+    ? <Link onClick={handleSignOut} className="btn bg-gray-700 text-white px-11 rounded-lg hover:bg-gray-300 hover:text-black hover:font-semibold hover:border-2 hover:border-gray-700">Log out</Link>
+    : <Link to="/login" className="btn bg-gray-700 text-white px-11 rounded-lg hover:bg-gray-300 hover:text-black hover:font-semibold hover:border-2 hover:border-gray-700">Login</Link>
+  }
   </div>
 </div>
     );
