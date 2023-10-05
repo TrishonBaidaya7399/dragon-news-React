@@ -4,12 +4,26 @@ import Navbar from "../Shared/Navbar/Navbar";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { FcGoogle } from 'react-icons/fc';
+import { BsGithub } from 'react-icons/bs';
 
 const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     console.log("Location in the login page: ",location);
     const {signInUser} = useContext(AuthContext);
+    const {signInWithGoogle} = useContext(AuthContext)
+    const handleSignInWithGoogle= (e)=>{
+        e.preventDefault();
+        signInWithGoogle()
+        .then(result=>{
+        console.log("Log in with google successfully!", result.user);    
+        navigate(location?.state ? location.state : "/")
+        })
+        .catch(error=>{
+            console.error(error.message)
+        })
+    }
     const handleLogIn = e =>{
         e.preventDefault();
         const form = new FormData(e.currentTarget);
@@ -36,6 +50,10 @@ const Login = () => {
                     <input className="p-[20px] text-gray-400 text-[16px] bg-gray-100 w-full rounded-lg mb-8" type="password" name="password" placeholder="Enter your password" required/>
                     <input type="submit" name="submit" value="Login" className="btn w-full bg-gray-800 rounded-lg text-white h-[65px] hover:bg-gray-300 hover:text-black hover:font-semibold hover:border-2 hover:border-gray-700" />
                 </form>
+            <div className='border-0 flex gap-8 mt-6'>
+                <button onClick={handleSignInWithGoogle} className='text-[16px] mb-2 rounded-lg justify-center py-2 px-[50px] flex gap-1 items-center border-[3px] border-t-red-500 border-l-yellow-400 border-b-green-500 border-r-blue-600'><FcGoogle className=""/>Google</button>
+                <button className='mb-2 px-[50px] text-[16px] rounded-lg justify-center py-2 flex gap-1 border-[3px] items-center border-gray-600'><BsGithub/>GitHub</button>
+           </div>
                 <p className="mt-[30px] text-[16px] text-gray-600 font-semibold">Dont’t Have An Account ? <NavLink to="/register" className="text-red-700">Register</NavLink></p>
             </div>
         </div>

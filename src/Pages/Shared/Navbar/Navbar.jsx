@@ -26,6 +26,7 @@ const Navbar = () => {
         <NavLink className="text-[18px] text-gray-500 font-normal" to="/career" activeClassName="active-link">Career</NavLink>
     </li>
     </>
+    console.log(user);
     return (
         <div className="navbar">
   <div className="navbar-start">
@@ -45,9 +46,10 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-  <label tabIndex={0} className="btn btn-ghost btn-circle avatar mr-2">
-        <div className="w-10 rounded-full">
-          <img src={userDefaultImg} />
+  
+  <label tabIndex={0} className="btn btn-ghost btn-circle avatar mr-2 ">
+        <div className="w-12 rounded-full">
+          <img src={user ? `${user.photoURL}`: `${userDefaultImg}`} />
         </div>
   </label>
   {

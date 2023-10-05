@@ -7,8 +7,11 @@ import Navbar from "../Shared/Navbar/Navbar";
 import RightSideNav from "../Shared/RightSideNav/RightSideNav";
 import BreakingNews from "./BreakingNews";
 import NewsCard from "./NewsCard";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Home = () => {
+    const {user} = useContext(AuthContext)
     const news = useLoaderData();
     console.log(news );
     return (
@@ -16,7 +19,9 @@ const Home = () => {
             <Header/>
             <BreakingNews/>
             <Navbar/>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-[70px]">
+            <h1 className="text-3xl font-bold text-center mt-[50px]">{user && `Welcome`}</h1>
+            <h1 className="text-[20px] font-semibold mr-2 text-center">{user && `${user.displayName}`}</h1>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-[50px]">
                 <div className=""><LeftSideNav/></div>
                 <div className="md:col-span-2">
                     {
